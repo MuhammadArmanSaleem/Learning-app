@@ -1,0 +1,343 @@
+<!DOCTYPE html><html dir="rtl" lang="ur"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<meta content="mobile_stack" name="shell-type">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&amp;family=Noto+Sans+Arabic:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-variant": "#d8e3fb",
+            "on-secondary-fixed-variant": "#005137",
+            "tertiary-fixed-dim": "#f9bd22",
+            "on-secondary-fixed": "#002114",
+            "tertiary": "#765700",
+            "primary-fixed-dim": "#afc6ff",
+            "primary-fixed": "#d9e2ff",
+            "on-surface-variant": "#424753",
+            "on-secondary": "#ffffff",
+            "surface-container-highest": "#d8e3fb",
+            "outline-variant": "#c2c6d6",
+            "error-container": "#ffdad6",
+            "inverse-surface": "#263143",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#ecf1ff",
+            "secondary-fixed-dim": "#45dfa4",
+            "secondary-fixed": "#68fcbf",
+            "surface-bright": "#f9f9ff",
+            "on-error-container": "#93000a",
+            "inverse-primary": "#afc6ff",
+            "surface": "#f9f9ff",
+            "outline": "#727785",
+            "on-secondary-container": "#00714e",
+            "on-primary-fixed": "#001a43",
+            "on-surface": "#111c2d",
+            "on-tertiary-container": "#fffbff",
+            "background": "#f9f9ff",
+            "tertiary-fixed": "#ffdf9f",
+            "primary-container": "#2c70e2",
+            "error": "#ba1a1a",
+            "on-background": "#111c2d",
+            "surface-container-low": "#f0f3ff",
+            "surface-dim": "#cfdaf2",
+            "on-primary-container": "#fefcff",
+            "on-tertiary-fixed": "#261a00",
+            "surface-container-high": "#dee8ff",
+            "tertiary-container": "#956e00",
+            "surface-tint": "#0059c6",
+            "secondary": "#006c4b",
+            "on-tertiary-fixed-variant": "#5c4300",
+            "on-error": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#004398",
+            "surface-container": "#e7eeff",
+            "secondary-container": "#64f9bc",
+            "primary": "#0057c2",
+            "surface-container-lowest": "#ffffff"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "margin": "1.25rem"
+          },
+          fontFamily: {
+            "urdu": ["'Noto Sans Arabic'", "'Noto Nastaliq Urdu'", "Inter", "sans-serif"],
+            "inter": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9ff;
+        font-family: 'Noto Sans Arabic', 'Noto Nastaliq Urdu', Inter, sans-serif;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      .pb-safe {
+        padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.75rem);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .urdu-text {
+      font-feature-settings: "kern" 1;
+      text-rendering: optimizeLegibility;
+    }
+  </style>
+</head>
+<body class="bg-surface font-urdu text-on-surface flex flex-col min-h-screen antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Refined RTL Top App Bar / Header -->
+<header class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl border-b border-surface-container-high/60 pt-safe">
+<div class="h-16 px-margin flex items-center justify-between">
+<!-- Right Side (RTL Start): Back Navigation & Clear Header Title -->
+<div class="flex items-center gap-space-sm">
+<button aria-label="واپس جائیں" class="w-10 h-10 flex items-center justify-center text-on-surface hover:text-primary active:scale-95 transition-transform rounded-full hover:bg-surface-container" onclick="history.back()">
+<span class="material-symbols-outlined text-[24px]">arrow_forward</span>
+</button>
+<div class="flex flex-col">
+<h1 class="text-[17px] font-bold text-on-surface leading-tight">ٹاپک کوئز</h1>
+<span class="text-[11px] text-on-surface-variant font-medium">فزکس بارہویں جماعت</span>
+</div>
+</div>
+<!-- Left Side (RTL End): Timer, Pause Action, and Profile Avatar -->
+<div class="flex items-center gap-2">
+<!-- Timer Badge (08:40) -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-fixed/60 text-primary text-xs font-semibold font-inter shadow-xs" dir="ltr">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span class="tabular-nums tracking-wide" id="quiz-countdown">07:42</span>
+</div>
+<!-- Pause Button -->
+<button aria-label="کوئز روکیں" class="w-9 h-9 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-high active:scale-95 transition-all text-on-surface" id="pause-quiz-btn" type="button">
+<span class="material-symbols-outlined text-[19px]">pause</span>
+</button>
+<!-- Student Avatar -->
+<div class="w-9 h-9 flex items-center justify-center shrink-0">
+<img alt="پروفائل" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/25" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfUbVdZUG3Tig6qoJq6KtJuB5V7Luu7-Jqbp2cdyBGGEOtALeh9zZsrf-PC1fI3sWxvhwT_4fs0kuJljP414fbH1vQ_Ay4OTgIKHHCgqGdh2ygarZoNpIIG9yh21DVF8_ZQykc7q5EAsNo51GW6KnQpS_fR3rtPLFtjYxaVEUqqvW_Drw4DC7uYbdL3xOLu4cPVT62ki95Dtw0n2JWKslb5Tbtim89G68JxpQmkNpFRB1suUztG_LO3g">
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="flex flex-col flex-1 relative w-full pt-[72px] pb-safe bg-surface min-h-screen">
+<div class="px-margin flex flex-col gap-space-md pb-space-xl pt-2">
+<!-- Progress & Milestone Header -->
+<div class="flex flex-col gap-2.5 bg-surface-container-lowest p-space-md rounded-xl shadow-xs border border-surface-container-high/40">
+<div class="flex items-center justify-between">
+<span class="text-sm font-semibold text-primary">
+            سوال 4 از 10 • 40% مکمل
+          </span>
+<span class="text-xs font-medium text-on-surface-variant font-inter" dir="ltr">4/10</span>
+</div>
+<!-- Progress Bar Track (RTL filling from right) -->
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-300" style="width: 40%;"></div>
+</div>
+</div>
+<!-- Question Master Card -->
+<div class="flex flex-col bg-surface-container-lowest p-space-lg rounded-2xl shadow-xs border border-surface-container-high/40 gap- space-md">
+<!-- Metadata Row: Type badge + Textbook Citation -->
+<div class="flex items-center justify-between flex-wrap gap-space-xs pb-1">
+<span class="px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]">checklist</span>
+            معروضی سوال (MCQ)
+          </span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]">menu_book</span>
+            ماخذ: باب 12، صفحہ 14
+          </span>
+</div>
+<!-- Question Stem -->
+<div class="pt-1">
+<p class="text-[17px] font-semibold text-on-surface leading-loose text-right urdu-text">
+            کولمب کے قانون کے مطابق، اگر دو چارجز کے درمیان فاصلہ دوگنا کر دیا جائے تو برقی قوت پر کیا اثر پڑے گا؟
+          </p>
+</div>
+<!-- LaTeX / Formula Callout Box -->
+<div class="mt-2 p-space-md rounded-xl bg-surface-container-low border border-surface-container flex flex-col items-center justify-center gap-1" dir="ltr">
+<span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant font-inter">FORMULA</span>
+<div class="text-[17px] font-bold text-primary tracking-wider font-inter">
+            F = k · (|q₁·q₂| / r²)
+          </div>
+</div>
+</div>
+<!-- Test Mode Options (Neutral Study Mode: Option ج Selected, No Instant Correct/Incorrect Reveal) -->
+<div aria-label="جواب کے اختیارات" class="flex flex-col gap-space-sm" id="options-group" role="radiogroup">
+<!-- Option A (الف) -->
+<button aria-checked="false" class="quiz-option text-right w-full flex items-center justify-between p-3.5 rounded-xl bg-surface-container-lowest border border-surface-container-high/40 hover:bg-surface-container-low active:scale-[0.99] transition-all shadow-xs" onclick="selectOption(this)" role="radio" type="button">
+<div class="flex items-center gap-space-md flex-1">
+<span class="option-marker w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-sm font-bold text-on-surface-variant shrink-0">
+              الف
+            </span>
+<span class="option-text text-sm font-medium text-on-surface urdu-text">یہ دوگنی ہو جائے گی (2F)</span>
+</div>
+<div class="check-indicator w-6 h-6 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[15px] text-transparent">check</span>
+</div>
+</button>
+<!-- Option B (ب) -->
+<button aria-checked="false" class="quiz-option text-right w-full flex items-center justify-between p-3.5 rounded-xl bg-surface-container-lowest border border-surface-container-high/40 hover:bg-surface-container-low active:scale-[0.99] transition-all shadow-xs" onclick="selectOption(this)" role="radio" type="button">
+<div class="flex items-center gap-space-md flex-1">
+<span class="option-marker w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-sm font-bold text-on-surface-variant shrink-0">
+              ب
+            </span>
+<span class="option-text text-sm font-medium text-on-surface urdu-text">یہ چار گنا ہو جائے گی (4F)</span>
+</div>
+<div class="check-indicator w-6 h-6 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[15px] text-transparent">check</span>
+</div>
+</button>
+<!-- Option C (ج) - Selected in test mode -->
+<button aria-checked="true" class="quiz-option is-selected text-right w-full flex items-center justify-between p-3.5 rounded-xl bg-primary-fixed/30 border-2 border-primary active:scale-[0.99] transition-all shadow-xs" onclick="selectOption(this)" role="radio" type="button">
+<div class="flex items-center gap-space-md flex-1">
+<span class="option-marker w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center text-sm font-bold shrink-0">
+              ج
+            </span>
+<span class="option-text text-sm font-semibold text-primary urdu-text">یہ ایک چوتھائی رہ جائے گی (F/4)</span>
+</div>
+<div class="check-indicator w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[15px] text-on-primary">check</span>
+</div>
+</button>
+<!-- Option D (د) -->
+<button aria-checked="false" class="quiz-option text-right w-full flex items-center justify-between p-3.5 rounded-xl bg-surface-container-lowest border border-surface-container-high/40 hover:bg-surface-container-low active:scale-[0.99] transition-all shadow-xs" onclick="selectOption(this)" role="radio" type="button">
+<div class="flex items-center gap-space-md flex-1">
+<span class="option-marker w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-sm font-bold text-on-surface-variant shrink-0">
+              د
+            </span>
+<span class="option-text text-sm font-medium text-on-surface urdu-text">یہ تبدیل نہیں ہوگی</span>
+</div>
+<div class="check-indicator w-6 h-6 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[15px] text-transparent">check</span>
+</div>
+</button>
+</div>
+<!-- Micro Tip Box -->
+<div class="flex items-center gap- space-sm p-3.5 rounded-xl bg-surface-container-low border border-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px] text-primary shrink-0">tips_and_updates</span>
+<p class="text-xs leading-relaxed text-on-surface-variant urdu-text">
+          یاد رکھیں: کولمب کی قوت فاصلے کے مربع کے معکوس تناسب (Inverse Square) میں گھٹتی ہے۔
+        </p>
+</div>
+<!-- Bottom Actions Deck -->
+<div class="flex items-center gap-3 pt-2 mt-auto">
+<!-- Report / Flag Action -->
+<button aria-label="سوال کی غلطی رپورٹ کریں" class="flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-surface-container-lowest border border-surface-container-high text-on-surface-variant hover:text-error hover:border-error/30 hover:bg-error-container/20 active:scale-95 transition-all text-xs font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">flag</span>
+<span>رپورٹ / پرچم</span>
+</button>
+<!-- Primary Advance Action: اگلا سوال -->
+<button class="flex-1 flex items-center justify-center gap-2 px-space-lg py-3 rounded-xl bg-primary text-on-primary hover:bg-primary/95 active:scale-[0.98] transition-all shadow-md text-sm font-bold" id="next-question-btn" type="button">
+<span>اگلا سوال</span>
+<!-- In RTL, forward arrow points left -->
+<span class="material-symbols-outlined text-[19px]">arrow_back</span>
+</button>
+</div>
+</div>
+</main>
+<script>
+    function selectOption(targetBtn) {
+      const allOptions = document.querySelectorAll('.quiz-option');
+      allOptions.forEach(btn => {
+        btn.setAttribute('aria-checked', 'false');
+        btn.classList.remove('is-selected', 'bg-primary-fixed/30', 'border-primary', 'border-2');
+        btn.classList.add('bg-surface-container-lowest', 'hover:bg-surface-container-low', 'border', 'border-surface-container-high/40');
+        
+        const marker = btn.querySelector('.option-marker');
+        if (marker) {
+          marker.classList.remove('bg-primary', 'text-on-primary');
+          marker.classList.add('bg-surface-container', 'text-on-surface-variant');
+        }
+
+        const textSpan = btn.querySelector('.option-text');
+        if (textSpan) {
+          textSpan.classList.remove('text-primary', 'font-semibold');
+          textSpan.classList.add('text-on-surface', 'font-medium');
+        }
+
+        const check = btn.querySelector('.check-indicator');
+        if (check) {
+          check.classList.remove('bg-primary');
+          check.classList.add('bg-surface-container');
+          const checkIcon = check.querySelector('.material-symbols-outlined');
+          if (checkIcon) {
+            checkIcon.classList.remove('text-on-primary');
+            checkIcon.classList.add('text-transparent');
+          }
+        }
+      });
+
+      // Apply Selected Test Mode State
+      targetBtn.setAttribute('aria-checked', 'true');
+      targetBtn.classList.remove('bg-surface-container-lowest', 'hover:bg-surface-container-low', 'border-surface-container-high/40');
+      targetBtn.classList.add('is-selected', 'bg-primary-fixed/30', 'border-2', 'border-primary');
+
+      const activeMarker = targetBtn.querySelector('.option-marker');
+      if (activeMarker) {
+        activeMarker.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        activeMarker.classList.add('bg-primary', 'text-on-primary');
+      }
+
+      const activeText = targetBtn.querySelector('.option-text');
+      if (activeText) {
+        activeText.classList.remove('text-on-surface', 'font-medium');
+        activeText.classList.add('text-primary', 'font-semibold');
+      }
+
+      const activeCheck = targetBtn.querySelector('.check-indicator');
+      if (activeCheck) {
+        activeCheck.classList.remove('bg-surface-container');
+        activeCheck.classList.add('bg-primary');
+        const activeCheckIcon = activeCheck.querySelector('.material-symbols-outlined');
+        if (activeCheckIcon) {
+          activeCheckIcon.classList.remove('text-transparent');
+          activeCheckIcon.classList.add('text-on-primary');
+        }
+      }
+    }
+
+    // Countdown Timer initialized to 08:40
+    (function () {
+      let totalSeconds = 8 * 60 + 40;
+      const timerElem = document.getElementById('quiz-countdown');
+      if (!timerElem) return;
+
+      const interval = setInterval(() => {
+        if (totalSeconds <= 0) {
+          clearInterval(interval);
+          return;
+        }
+        totalSeconds--;
+        const mins = Math.floor(totalSeconds / 60);
+        const secs = totalSeconds % 60;
+        timerElem.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      }, 1000);
+    })();
+  </script>
+</body></html>
